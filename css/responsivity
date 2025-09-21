@@ -1,0 +1,185 @@
+/* ============================ */
+/*           INDEX.HTML         */
+/* ============================ */
+
+/* RESET I OSNOVNO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  padding-bottom: 60px;
+}
+
+/* HEADER */
+header {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  padding: 0 1rem;
+}
+
+nav a {
+  background-color: #0059b3;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: white;
+}
+
+nav a:hover,
+nav a.aktivna {
+  background-color: #0073e6;
+}
+
+/* RESPONSIVNOST ZA OBRAZAC */
+@media (max-width: 767px) {
+  .forma-wrapper {
+    width: 90%;
+    margin: 2rem auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .forma-wrapper {
+    width: 50%;
+    margin: 2rem auto;
+  }
+}
+
+/* GLOBALNI WRAPPER ZA STRANICE */
+.container,
+.main-wrapper,
+.tablica-wrapper,
+.autor-container,
+.detalji-container,
+.povijest-wrapper,
+.forma-wrapper,
+#cpp-tablica,
+#cpp,
+#ai-paragrafi {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* FOOTER */
+footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+footer a {
+  color: #99ccff;
+  text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 768px) {
+  .s-dvije-kolone {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .slika-alata img {
+    max-width: 180px;
+  }
+}
+@media (max-width: 480px) {
+  .s-dvije-kolone {
+    gap: 1rem;
+  }
+
+  .slika-alata img {
+    max-width: 80%;
+  }
+
+  .tekst-alata {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+
+  .alat-okvir {
+    border-left: 4px solid #0059b3;
+    box-shadow: none;
+    padding: 0.8rem;
+  }
+
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h2, h3 {
+    font-size: 1.3rem;
+  }
+
+  .timeline-content p,
+  .timeline-content h4 {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .s-dvije-kolone {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .slika-alata img {
+    max-width: 60%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .tekst-alata {
+    padding: 0 1rem;
+  }
+
+  iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .alat-okvir {
+    padding: 1rem;
+  }
+}
