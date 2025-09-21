@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obrazac za korištenje AI alata</title>
+  <link rel="icon" type="image/png" href="../resursi/slike/logo.svg">
+  <link rel="stylesheet" href="../css/fmjertan23.css">
+  <link rel="stylesheet" href="../css/responzivnost.css">
+  <script src="../js/fmjertan23.js"></script>
+</head>
+<body>
+  <header>
+    <div class="zaglavlje-logo">
+      <a href="../index.html"><img src="../resursi/slike/logo.svg" alt="Logo stranice" class="logo-stranice"></a>
+      <h1><a href="../index.html">AI alati</a></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Početna</a></li>
+        <li><a href="autor.html">O autoru</a></li>
+        <li><a href="dokumentacija.html">Dokumentacija</a></li>
+        <li><a href="obrazac.html" class="aktivna">Obrazac</a></li>
+        <li><a href="povijest.html">Povijest AI-ja</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="forma-wrapper">
+      <h2>Prijava za korištenje AI alata</h2>
+      <form action="https://spider.foi.hr/OWT/materijali/ispis_forme.php" method="post">
+        <label for="ime">Ime:</label>
+        <input type="text" id="ime" name="ime" required>
+
+        <label for="prezime">Prezime:</label>
+        <input type="text" id="prezime" name="prezime" required>
+
+        <label for="email">Email adresa:</label>
+        <input type="email" id="email" name="email" placeholder="Unesite FOI email adresu." required>
+
+        <label for="lozinka">Lozinka:</label>
+        <input type="password" id="lozinka" name="lozinka" required>
+
+        <label>Spol:</label>
+        <label><input type="radio" name="spol" value="m"> Muško</label>
+        <label><input type="radio" name="spol" value="z"> Žensko</label>
+
+        <label>AI alati koje koristite:</label>
+        <label><input type="checkbox" name="alat[]" value="chatgpt"> ChatGPT</label>
+        <label><input type="checkbox" name="alat[]" value="copilot"> Copilot</label>
+        <label><input type="checkbox" name="alat[]" value="deepseek"> DeepSeek</label>
+
+        <label for="razina">Razina znanja:</label>
+        <select id="razina" name="razina">
+          <option value="osnovna">Osnovna</option>
+          <option value="srednja">Srednja</option>
+          <option value="napredna">Napredna</option>
+        </select>
+
+        <label for="datum">Datum prijave:</label>
+        <input type="date" id="datum" name="datum">
+
+        <label for="vrijeme">Vrijeme prijave:</label>
+        <input type="time" id="vrijeme" name="vrijeme">
+
+        <label for="boja">Omiljena boja sučelja:</label>
+        <input type="color" id="boja" name="boja">
+
+        <label for="file">Učitaj dokumentaciju (.pdf):</label>
+        <input type="file" id="file" name="file" accept=".pdf">
+
+        <label for="komentar">Dodatni komentar:</label>
+        <textarea id="komentar" name="komentar" rows="4"></textarea>
+
+        <button type="submit">Pošalji</button>
+        <button type="reset">Resetiraj</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://chat.openai.com" target="_blank"><img src="../resursi/slike/chatgpt_logo.png" alt="ChatGPT" height="30"></a>
+      <a href="https://copilot.microsoft.com/onboarding" target="_blank"><img src="../resursi/slike/copilot_logo.png" alt="Copilot" height="30"></a>
+      <a href="https://chat.deepseek.com/" target="_blank"><img src="../resursi/slike/deepseek_logo.png" alt="DeepSeek" height="30"></a>
+      <br>
+      Filip Mjertan &copy; 2025 |
+      <a href="http://validator.w3.org/check?uri=https://spider.foi.hr/OWT/2025/zadaca_01/fmjertan23/html/obrazac.html" target="_blank">
+        <img src="https://spider.foi.hr/OWT/materijali/slike/HTML5.png" alt="HTML Validator" height="30">
+      </a>
+    </p>
+  </footer>
+</body>
+</html>
