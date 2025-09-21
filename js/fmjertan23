@@ -1,0 +1,159 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const slajdovi = document.querySelector(".slajdovi");
+    const slajd = document.querySelectorAll(".slajd");
+    const radio = document.querySelectorAll("input[name='slider']");
+    const strelice = document.querySelectorAll(".strelica");
+    const trajanjeSlajda = 5000; //promjena trajanja slajda
+  
+  
+    let trenutni = 0;
+    let brojSlajdova = slajd.length;
+    let interval;
+
+    const progressBar = document.querySelector(".progress-bar");
+  
+    function prikaziSlajd(index) {
+      if (index < 0) index = brojSlajdova - 1;
+      if (index >= brojSlajdova) index = 0;
+  
+      // Pomiči slajdove
+      slajdovi.style.transform = `translateX(-${index * (100 / brojSlajdova)}%)`;
+  
+      // Ako koristiš radio točkice (vizualno)
+      if (radio[index]) {
+        radio[index].checked = true;
+      }
+  
+      // Resetiraj sve naslove i linkove
+      slajd.forEach(s => {
+        const naslov = s.querySelector("h2");
+        const gumb = s.querySelector(".detalji-link");
+  
+        if (naslov && gumb) {
+          naslov.style.opacity = "0";
+          naslov.style.transform = "translateY(30px)";
+          naslov.style.animation = "none";
+  
+          gumb.style.opacity = "0";
+          gumb.style.transform = "translateY(30px)";
+          gumb.style.animation = "none";
+        }
+      });
+  
+      // Animiraj aktivni slajd
+      const aktivni = slajd[index];
+      const naslov = aktivni.querySelector("h2");
+      const gumb = aktivni.querySelector(".detalji-link");
+  
+      // Dodaj animaciju (nakon kratke pauze)
+      if (naslov && gumb) {
+        setTimeout(() => {
+          naslov.style.animation = "fadeInUp 0.8s ease forwards";
+          gumb.style.animation = "fadeInUp 0.8s ease forwards";
+        }, 10);
+      }
+  
+      trenutni = index;
+
+        progressBar.style.transition = "none";
+        progressBar.style.width = "0%";
+
+        setTimeout(() => {
+            progressBar.style.transition = `width ${trajanjeSlajda / 1000}s linear`;
+            progressBar.style.width = "100%";
+            }, 10);
+
+
+    }
+  
+    function pokreniAutomatski() {
+      interval = setInterval(() => {
+        prikaziSlajd(trenutni + 1);
+      }, trajanjeSlajda);
+    }
+  
+    // Navigacija strelicama
+    strelice.forEach(strelica => {
+      strelica.addEventListener("click", () => {
+        clearInterval(interval);
+        if (strelica.classList.contains("lijevo")) {
+          prikaziSlajd(trenutni - 1);
+        } else {
+          prikaziSlajd(trenutni + 1);
+        }
+        pokreniAutomatski();
+      });
+    });
+  
+    // Pokreni carousel
+    prikaziSlajd(trenutni);
+    pokreniAutomatski();
+  });
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    const thumbnails = document.querySelectorAll(".thumbnail");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.querySelector(".lightbox-img");
+    const closeBtn = document.querySelector(".close");
+    lightbox.style.display = "none";
+  
+    thumbnails.forEach(img => {
+      img.addEventListener("click", (e) => {
+        e.preventDefault();
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+  
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
+    });
+  
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+        lightboxImg.src = "";
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const tekstovi = document.querySelectorAll(".tekst-alata p");
+  
+    tekstovi.forEach(p => {
+      const puniTekst = p.textContent.trim();
+      const rijeci = puniTekst.split(" ");
+      if (rijeci.length <= 6) return;
+  
+      const skraceniTekst = rijeci.slice(0, 6).join(" ") + " ";
+      const ostatak = rijeci.slice(6).join(" ");
+  
+      p.innerHTML = `
+        <span class="kratki-tekst">${skraceniTekst}</span>
+        <a href="#" class="prikazi-vise">...više</a>
+        <span class="skriveni-tekst" style="display: none;">${ostatak}</span>
+      `;
+  
+      const link = p.querySelector(".prikazi-vise");
+      const skriveni = p.querySelector(".skriveni-tekst");
+  
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        skriveni.style.display = "inline";
+        link.style.display = "none";
+      });
+    });
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    const trenutačnaStranica = window.location.pathname.split("/").pop(); // npr. "index.html"
+    const navigacija = document.querySelectorAll("nav a");
+  
+    navigacija.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href === trenutačnaStranica) {
+        link.classList.add("aktivna");
+      }
+    });
+  });
+  
